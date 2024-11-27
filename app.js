@@ -27,7 +27,6 @@ app.use(express.urlencoded({
   extended: true
 }));
 
-
 // konfigurasi flash
 app.use(cookieParser("secret"));
 app.use(
@@ -40,7 +39,6 @@ app.use(
     saveUninitialized: true,
   }),
 );
-
 app.use(flash());
 
 app.get('/', (req, res) => {
@@ -89,16 +87,15 @@ app.post("/contact", [
 ], (req, res) => {
   const result = validationResult(req);
   if (!result.isEmpty()) {
-    // return res.status(400).json({
-    //   errors: result.array()
-    // });
+      
     res.render("add-contact", {
       layout: "layout/main-layouts",
       title: "Form Tambah Data Contact",
       errors: result.array()
     });
-  } else {
-    addContact(req.body);
+  }
+   else {
+    addContact(req.body);                                                                                                                                                        
     // kirimkan flash message
     req.flash("msg", "Data contact berhasil ditambahkan");
     res.redirect("/contact");

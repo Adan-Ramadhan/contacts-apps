@@ -43,7 +43,7 @@ const addContact = (contact) => {
 // cek nama yang duplikat
 const cekDuplikat = (nama) => {
   const contacts = loadContacts();
-  return contacts.find((contact => contact.nama.toLowerCase() === nama.toLowerCase()));
+  return contacts.find(contact => contact.nama.toLowerCase() === nama.toLowerCase());
 };
 
 const deleteContact = (nama) => {
